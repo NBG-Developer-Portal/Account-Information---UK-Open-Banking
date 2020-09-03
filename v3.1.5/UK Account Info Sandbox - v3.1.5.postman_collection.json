@@ -1,0 +1,1631 @@
+{
+	"info": {
+		"_postman_id": "60cbe222-1453-4bee-8c36-c31d1c0c2b4e",
+		"name": "UK Account Info Sandbox - v3.1.0",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Sandbox",
+			"item": [
+				{
+					"name": "Create",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Client-Id",
+								"value": "{{client-id}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"sandboxId\":\"{{sandbox-id}}\"\n}"
+						},
+						"url": {
+							"raw": "https://{{host}}/sandbox",
+							"protocol": "https",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"sandbox"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Export",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Client-Id",
+								"value": "{{client-id}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "https://{{host}}/sandbox/{{sandbox-id}}",
+							"protocol": "https",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"sandbox",
+								"{{sandbox-id}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Import",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Client-Id",
+								"value": "{{client-id}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"sandboxId\": \"{{sandbox-id}}\",\r\n    \"users\": [\r\n        {\r\n            \"accounts\": [\r\n                {\r\n                    \"info\": {\r\n                        \"currency\": \"EUR\",\r\n                        \"iban\": \"GR3201106970000069774934603\",\r\n                        \"accountType\": \"Personal\",\r\n                        \"accountSubType\": \"Savings\",\r\n                        \"description\": \"This is a personal savings account\",\r\n                        \"alias\": \"My account\",\r\n                        \"availableBalance\": 1120.67,\r\n                        \"ledgerBalance\": 1150.67\r\n                    },\r\n                    \"beneficiaries\": [\r\n                        {\r\n                            \"name\": \"FIRST BENEFICIARY\"\r\n                        },\r\n                        {\r\n                            \"name\": \"SECOND BENEFICIARY\"\r\n                        }\r\n                    ],\r\n                    \"standingOrders\": [\r\n                        {\r\n                            \"description\": \"My second standing order\",\r\n                            \"frequency\": \"IntrvlMnthDay:1:1\",\r\n                            \"firstPaymentDate\": \"2020-01-01T00:00:00\",\r\n                            \"finalPaymentDate\": \"2020-12-31T00:00:00\",\r\n                            \"status\": \"Active\",\r\n                            \"amount\": 10.0\r\n                        },\r\n                        {\r\n                            \"description\": \"My second standing order\",\r\n                            \"frequency\": \"IntrvlMnthDay:1:1\",\r\n                            \"firstPaymentDate\": \"2019-01-01T00:00:00\",\r\n                            \"finalPaymentDate\": \"2019-12-31T00:00:00\",\r\n                            \"status\": \"Active\",\r\n                            \"amount\": 10.0\r\n                        }\r\n                    ],\r\n                    \"scheduledPayments\": [\r\n                        {\r\n                            \"description\": \"My second scheduled payment\",\r\n                            \"executionDate\": \"2020-06-04T12:28:32.224665+03:00\",\r\n                            \"amount\": 100.0\r\n                        },\r\n                        {\r\n                            \"description\": \"My first scheduled payment\",\r\n                            \"executionDate\": \"2020-07-04T12:28:32.2247348+03:00\",\r\n                            \"amount\": 70.0\r\n                        }\r\n                    ],\r\n                    \"statements\": [\r\n                        {\r\n                            \"number\": \"GR3201106970000069774934603\",\r\n                            \"year\": 2019,\r\n                            \"month\": 8\r\n                        },\r\n                        {\r\n                            \"number\": \"GR3201106970000069774934603\",\r\n                            \"year\": 2019,\r\n                            \"month\": 7\r\n                        }\r\n                    ],\r\n                    \"transactions\": [\r\n                        {\r\n                            \"amount\": 50.0,\r\n                            \"currency\": \"EUR\",\r\n                            \"creditDebit\": \"Debit\",\r\n                            \"valueDateTime\": \"2019-08-20T00:00:00\",\r\n                            \"bookingDateTime\": \"2019-08-20T00:00:00\",\r\n                            \"description\": \"Pay mobile bill\",\r\n                            \"accountingBalance\": 4330.65\r\n                        },\r\n                        {\r\n                            \"amount\": 1000.0,\r\n                            \"currency\": \"EUR\",\r\n                            \"creditDebit\": \"Credit\",\r\n                            \"valueDateTime\": \"2019-07-31T00:00:00\",\r\n                            \"bookingDateTime\": \"2019-07-31T00:00:00\",\r\n                            \"description\": \"Payroll\",\r\n                            \"accountingBalance\": 4381.1\r\n                        }\r\n                    ]\r\n                }\r\n            ],\r\n            \"cards\": [\r\n                {\r\n                    \"info\": {\r\n                        \"number\": \"1234567890123456\",\r\n                        \"description\": \"VISA CLASSIC\",\r\n                        \"holderName\": \"HOLDER NAME\",\r\n                        \"expiration\": \"04/2022\",\r\n                        \"type\": \"Personal\",\r\n                        \"subType\": \"CreditCard\",\r\n                        \"availableBalance\": 0.0,\r\n                        \"ledgerBalance\": 0.0\r\n                    },\r\n                    \"statements\": [\r\n                        {\r\n                            \"number\": \"1234567890123456\",\r\n                            \"year\": 2019,\r\n                            \"month\": 8\r\n                        },\r\n                        {\r\n                            \"number\": \"1234567890123456\",\r\n                            \"year\": 2019,\r\n                            \"month\": 7\r\n                        }\r\n                    ],\r\n                    \"transactions\": [\r\n                        {\r\n                            \"amount\": 72.0,\r\n                            \"currency\": \"EUR\",\r\n                            \"creditDebit\": \"Debit\",\r\n                            \"valueDateTime\": \"2019-08-20T00:00:00\",\r\n                            \"bookingDateTime\": \"2019-08-20T00:00:00\",\r\n                            \"description\": \"Pay electricity bill\",\r\n                            \"accountingBalance\": 0.0\r\n                        },\r\n                        {\r\n                            \"amount\": 10.0,\r\n                            \"currency\": \"EUR\",\r\n                            \"creditDebit\": \"Debit\",\r\n                            \"valueDateTime\": \"2019-07-31T00:00:00\",\r\n                            \"bookingDateTime\": \"2019-07-31T00:00:00\",\r\n                            \"description\": \"Food Take-Away\",\r\n                            \"accountingBalance\": 0.0\r\n                        }\r\n                    ]\r\n                }\r\n            ]\r\n        }\r\n    ]\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://{{host}}/sandbox",
+							"protocol": "https",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"sandbox"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete",
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Client-Id",
+								"value": "{{client-id}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "https://{{host}}/sandbox/{{sandbox-id}}",
+							"protocol": "https",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"sandbox",
+								"{{sandbox-id}}"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"protocolProfileBehavior": {}
+		},
+		{
+			"name": "Consents",
+			"item": [
+				{
+					"name": "Create Consent",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "68f8658e-3e00-4d6e-852c-f70d3295722a",
+								"exec": [
+									"var data = JSON.parse(responseBody);\r",
+									"if(data.Data !== undefined)\r",
+									"   postman.setEnvironmentVariable(\"consent-id\", data.Data.ConsentId);"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Client-Id",
+								"value": "{{client-id}}",
+								"type": "text"
+							},
+							{
+								"key": "x-fapi-interaction-id",
+								"value": "{{$guid}}",
+								"type": "text"
+							},
+							{
+								"key": "sandbox-id",
+								"value": "{{sandbox-id}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n\t\"Data\": {\r\n\t\t\"Permissions\": [\r\n\t\t\t\"ReadAccountsDetail\",\r\n\t\t\t\"ReadBalances\",\r\n\t\t\t\"ReadBeneficiariesDetail\",\r\n\t\t\t\"ReadTransactionsCredits\",\r\n\t\t\t\"ReadTransactionsDebits\",\r\n\t\t\t\"ReadTransactionsDetail\",\r\n\t\t\t\"ReadParty\",\r\n\t\t\t\"ReadStandingOrdersDetail\",\r\n\t\t\t\"ReadScheduledPaymentsDetail\",\r\n\t\t\t\"ReadStatementsDetail\",\r\n\t\t\t\"ReadPAN\"\r\n\t\t],\r\n\t\t\"ExpirationDateTime\": \"2020-12-31T00:00:00\",\r\n\t\t\"TransactionFromDateTime\": \"2019-01-01T00:00:00\",\r\n\t\t\"TransactionToDateTime\": \"2020-12-31T00:00:00\"\r\n\t},\r\n\t\"Risk\": {}\r\n}"
+						},
+						"url": {
+							"raw": "https://{{host}}/account-access-consents",
+							"protocol": "https",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"account-access-consents"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Consent",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Client-Id",
+								"value": "{{client-id}}",
+								"type": "text"
+							},
+							{
+								"key": "x-fapi-interaction-id",
+								"value": "{{$guid}}",
+								"type": "text"
+							},
+							{
+								"key": "sandbox-id",
+								"value": "{{sandbox-id}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "https://{{host}}/account-access-consents/{{consent-id}}",
+							"protocol": "https",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"account-access-consents",
+								"{{consent-id}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete Consent",
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Client-Id",
+								"value": "{{client-id}}",
+								"type": "text"
+							},
+							{
+								"key": "x-fapi-interaction-id",
+								"value": "{{$guid}}",
+								"type": "text"
+							},
+							{
+								"key": "sandbox-id",
+								"value": "{{sandbox-id}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "https://{{host}}/account-access-consents/{{consent-id}}",
+							"protocol": "https",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"account-access-consents",
+								"{{consent-id}}"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"protocolProfileBehavior": {}
+		},
+		{
+			"name": "Accounts",
+			"item": [
+				{
+					"name": "Get Accounts",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "62e91dc0-f140-4a1d-8990-44a5a67667c0",
+								"exec": [
+									"var data = JSON.parse(responseBody);\r",
+									"if(data.Data !== undefined)\r",
+									"   postman.setEnvironmentVariable(\"account-id\", data.Data.Account[0].AccountId);"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Client-Id",
+								"value": "{{client-id}}",
+								"type": "text"
+							},
+							{
+								"key": "x-fapi-interaction-id",
+								"value": "{{$guid}}",
+								"type": "text"
+							},
+							{
+								"key": "x-fapi-customer-ip-address",
+								"value": "{{$randomIP}}",
+								"type": "text"
+							},
+							{
+								"key": "sandbox-id",
+								"value": "{{sandbox-id}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "https://{{host}}/accounts",
+							"protocol": "https",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"accounts"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Account By AccountId",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Client-Id",
+								"value": "{{client-id}}",
+								"type": "text"
+							},
+							{
+								"key": "x-fapi-interaction-id",
+								"value": "{{$guid}}",
+								"type": "text"
+							},
+							{
+								"key": "x-fapi-customer-ip-address",
+								"value": "{{$randomIP}}",
+								"type": "text"
+							},
+							{
+								"key": "sandbox-id",
+								"value": "{{sandbox-id}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "https://{{host}}/accounts/{{account-id}}",
+							"protocol": "https",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"accounts",
+								"{{account-id}}"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"protocolProfileBehavior": {}
+		},
+		{
+			"name": "Balances",
+			"item": [
+				{
+					"name": "Get Balances ( Not Implemented )",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Client-Id",
+								"value": "{{client-id}}",
+								"type": "text"
+							},
+							{
+								"key": "x-fapi-interaction-id",
+								"value": "{{$guid}}",
+								"type": "text"
+							},
+							{
+								"key": "x-fapi-customer-ip-address",
+								"value": "{{$randomIP}}",
+								"type": "text"
+							},
+							{
+								"key": "sandbox-id",
+								"value": "{{sandbox-id}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "https://{{host}}/balances",
+							"protocol": "https",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"balances"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Balances For Account",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Client-Id",
+								"value": "{{client-id}}",
+								"type": "text"
+							},
+							{
+								"key": "x-fapi-interaction-id",
+								"value": "{{$guid}}",
+								"type": "text"
+							},
+							{
+								"key": "x-fapi-customer-ip-address",
+								"value": "{{$randomIP}}",
+								"type": "text"
+							},
+							{
+								"key": "sandbox-id",
+								"value": "{{sandbox-id}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "https://{{host}}/accounts/{{account-id}}/balances",
+							"protocol": "https",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"accounts",
+								"{{account-id}}",
+								"balances"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"protocolProfileBehavior": {}
+		},
+		{
+			"name": "Beneficiaries",
+			"item": [
+				{
+					"name": "Get Beneficiaries ( Not Implemented )",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Client-Id",
+								"value": "{{client-id}}",
+								"type": "text"
+							},
+							{
+								"key": "x-fapi-interaction-id",
+								"value": "{{$guid}}",
+								"type": "text"
+							},
+							{
+								"key": "x-fapi-customer-ip-address",
+								"value": "{{$randomIP}}",
+								"type": "text"
+							},
+							{
+								"key": "sandbox-id",
+								"value": "{{sandbox-id}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "https://{{host}}/beneficiaries",
+							"protocol": "https",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"beneficiaries"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Beneficiaries For Account",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Client-Id",
+								"value": "{{client-id}}",
+								"type": "text"
+							},
+							{
+								"key": "x-fapi-interaction-id",
+								"value": "{{$guid}}",
+								"type": "text"
+							},
+							{
+								"key": "x-fapi-customer-ip-address",
+								"value": "{{$randomIP}}",
+								"type": "text"
+							},
+							{
+								"key": "sandbox-id",
+								"value": "{{sandbox-id}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "https://{{host}}/accounts/{{account-id}}/beneficiaries",
+							"protocol": "https",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"accounts",
+								"{{account-id}}",
+								"beneficiaries"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"protocolProfileBehavior": {}
+		},
+		{
+			"name": "DirectDebits",
+			"item": [
+				{
+					"name": "Get Direct Debits ( Not Implemented )",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Client-Id",
+								"value": "{{client-id}}",
+								"type": "text"
+							},
+							{
+								"key": "x-fapi-interaction-id",
+								"value": "{{$guid}}",
+								"type": "text"
+							},
+							{
+								"key": "x-fapi-customer-ip-address",
+								"value": "{{$randomIP}}",
+								"type": "text"
+							},
+							{
+								"key": "sandbox-id",
+								"value": "{{sandbox-id}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "https://{{host}}/direct-debits",
+							"protocol": "https",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"direct-debits"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Direct Debits For Account ( Not Implemented )",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Client-Id",
+								"value": "{{client-id}}",
+								"type": "text"
+							},
+							{
+								"key": "x-fapi-interaction-id",
+								"value": "{{$guid}}",
+								"type": "text"
+							},
+							{
+								"key": "x-fapi-customer-ip-address",
+								"value": "{{$randomIP}}",
+								"type": "text"
+							},
+							{
+								"key": "sandbox-id",
+								"value": "{{sandbox-id}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "https://{{host}}/accounts/{{account-id}}/direct-debits",
+							"protocol": "https",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"accounts",
+								"{{account-id}}",
+								"direct-debits"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"protocolProfileBehavior": {}
+		},
+		{
+			"name": "Offers",
+			"item": [
+				{
+					"name": "Get Offers ( Not Implemented )",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Client-Id",
+								"value": "{{client-id}}",
+								"type": "text"
+							},
+							{
+								"key": "x-fapi-interaction-id",
+								"value": "{{$guid}}",
+								"type": "text"
+							},
+							{
+								"key": "x-fapi-customer-ip-address",
+								"value": "{{$randomIP}}",
+								"type": "text"
+							},
+							{
+								"key": "sandbox-id",
+								"value": "{{sandbox-id}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "https://{{host}}/offers",
+							"protocol": "https",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"offers"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Offers For Account ( Not Implemented )",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Client-Id",
+								"value": "{{client-id}}",
+								"type": "text"
+							},
+							{
+								"key": "x-fapi-interaction-id",
+								"value": "{{$guid}}",
+								"type": "text"
+							},
+							{
+								"key": "x-fapi-customer-ip-address",
+								"value": "{{$randomIP}}",
+								"type": "text"
+							},
+							{
+								"key": "sandbox-id",
+								"value": "{{sandbox-id}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "https://{{host}}/accounts/{{account-id}}/offers",
+							"protocol": "https",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"accounts",
+								"{{account-id}}",
+								"offers"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"protocolProfileBehavior": {}
+		},
+		{
+			"name": "Party",
+			"item": [
+				{
+					"name": "Get Party",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Client-Id",
+								"value": "{{client-id}}",
+								"type": "text"
+							},
+							{
+								"key": "x-fapi-interaction-id",
+								"value": "{{$guid}}",
+								"type": "text"
+							},
+							{
+								"key": "x-fapi-customer-ip-address",
+								"value": "{{$randomIP}}",
+								"type": "text"
+							},
+							{
+								"key": "sandbox-id",
+								"value": "{{sandbox-id}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "https://{{host}}/party",
+							"protocol": "https",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"party"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Party For Account",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Client-Id",
+								"value": "{{client-id}}",
+								"type": "text"
+							},
+							{
+								"key": "x-fapi-interaction-id",
+								"value": "{{$guid}}",
+								"type": "text"
+							},
+							{
+								"key": "x-fapi-customer-ip-address",
+								"value": "{{$randomIP}}",
+								"type": "text"
+							},
+							{
+								"key": "sandbox-id",
+								"value": "{{sandbox-id}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "https://{{host}}/accounts/{{account-id}}/party",
+							"protocol": "https",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"accounts",
+								"{{account-id}}",
+								"party"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Parties For Account",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"type": "text",
+								"value": "application/json"
+							},
+							{
+								"key": "Client-Id",
+								"type": "text",
+								"value": "{{client-id}}"
+							},
+							{
+								"key": "x-fapi-interaction-id",
+								"type": "text",
+								"value": "{{$guid}}"
+							},
+							{
+								"key": "x-fapi-customer-ip-address",
+								"type": "text",
+								"value": "{{$randomIP}}"
+							},
+							{
+								"key": "sandbox-id",
+								"type": "text",
+								"value": "{{sandbox-id}}"
+							}
+						],
+						"url": {
+							"raw": "https://{{host}}/accounts/{{account-id}}/parties",
+							"protocol": "https",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"accounts",
+								"{{account-id}}",
+								"parties"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"protocolProfileBehavior": {}
+		},
+		{
+			"name": "Products",
+			"item": [
+				{
+					"name": "Get Products ( Not Implemented )",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Client-Id",
+								"value": "{{client-id}}",
+								"type": "text"
+							},
+							{
+								"key": "x-fapi-interaction-id",
+								"value": "{{$guid}}",
+								"type": "text"
+							},
+							{
+								"key": "x-fapi-customer-ip-address",
+								"value": "{{$randomIP}}",
+								"type": "text"
+							},
+							{
+								"key": "sandbox-id",
+								"value": "{{sandbox-id}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "https://{{host}}/products",
+							"protocol": "https",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"products"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Products For Account ( Not Implemented )",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Client-Id",
+								"value": "{{client-id}}",
+								"type": "text"
+							},
+							{
+								"key": "x-fapi-interaction-id",
+								"value": "{{$guid}}",
+								"type": "text"
+							},
+							{
+								"key": "x-fapi-customer-ip-address",
+								"value": "{{$randomIP}}",
+								"type": "text"
+							},
+							{
+								"key": "sandbox-id",
+								"value": "{{sandbox-id}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "https://{{host}}/accounts/{{account-id}}/product",
+							"protocol": "https",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"accounts",
+								"{{account-id}}",
+								"product"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"protocolProfileBehavior": {}
+		},
+		{
+			"name": "Scheduled Payments",
+			"item": [
+				{
+					"name": "Get Scheduled Payments ( Not Implemented )",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Client-Id",
+								"value": "{{client-id}}",
+								"type": "text"
+							},
+							{
+								"key": "x-fapi-interaction-id",
+								"value": "{{$guid}}",
+								"type": "text"
+							},
+							{
+								"key": "x-fapi-customer-ip-address",
+								"value": "{{$randomIP}}",
+								"type": "text"
+							},
+							{
+								"key": "sandbox-id",
+								"value": "{{sandbox-id}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "https://{{host}}/scheduled-payments",
+							"protocol": "https",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"scheduled-payments"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Scheduled Payments For Account",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Client-Id",
+								"value": "{{client-id}}",
+								"type": "text"
+							},
+							{
+								"key": "x-fapi-interaction-id",
+								"value": "{{$guid}}",
+								"type": "text"
+							},
+							{
+								"key": "x-fapi-customer-ip-address",
+								"value": "{{$randomIP}}",
+								"type": "text"
+							},
+							{
+								"key": "sandbox-id",
+								"value": "{{sandbox-id}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "https://{{host}}/accounts/{{account-id}}/scheduled-payments",
+							"protocol": "https",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"accounts",
+								"{{account-id}}",
+								"scheduled-payments"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"protocolProfileBehavior": {}
+		},
+		{
+			"name": "Standing Orders",
+			"item": [
+				{
+					"name": "Get Standing Orders ( Not Implemented )",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Client-Id",
+								"value": "{{client-id}}",
+								"type": "text"
+							},
+							{
+								"key": "x-fapi-interaction-id",
+								"value": "{{$guid}}",
+								"type": "text"
+							},
+							{
+								"key": "x-fapi-customer-ip-address",
+								"value": "{{$randomIP}}",
+								"type": "text"
+							},
+							{
+								"key": "sandbox-id",
+								"value": "{{sandbox-id}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "https://{{host}}/standing-orders",
+							"protocol": "https",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"standing-orders"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Standing Orders For Account",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Client-Id",
+								"value": "{{client-id}}",
+								"type": "text"
+							},
+							{
+								"key": "x-fapi-interaction-id",
+								"value": "{{$guid}}",
+								"type": "text"
+							},
+							{
+								"key": "x-fapi-customer-ip-address",
+								"value": "{{$randomIP}}",
+								"type": "text"
+							},
+							{
+								"key": "sandbox-id",
+								"value": "{{sandbox-id}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "https://{{host}}/accounts/{{account-id}}/standing-orders",
+							"protocol": "https",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"accounts",
+								"{{account-id}}",
+								"standing-orders"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"protocolProfileBehavior": {}
+		},
+		{
+			"name": "Statements",
+			"item": [
+				{
+					"name": "Get Statements ( Not Implemented )",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Client-Id",
+								"value": "{{client-id}}",
+								"type": "text"
+							},
+							{
+								"key": "x-fapi-interaction-id",
+								"value": "{{$guid}}",
+								"type": "text"
+							},
+							{
+								"key": "x-fapi-customer-ip-address",
+								"value": "{{$randomIP}}",
+								"type": "text"
+							},
+							{
+								"key": "sandbox-id",
+								"value": "{{sandbox-id}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "https://{{host}}/statements",
+							"protocol": "https",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"statements"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Transactions For Account And Statement",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Client-Id",
+								"value": "{{client-id}}",
+								"type": "text"
+							},
+							{
+								"key": "x-fapi-interaction-id",
+								"value": "{{$guid}}",
+								"type": "text"
+							},
+							{
+								"key": "x-fapi-customer-ip-address",
+								"value": "{{$randomIP}}",
+								"type": "text"
+							},
+							{
+								"key": "sandbox-id",
+								"value": "{{sandbox-id}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "https://{{host}}/accounts/{{account-id}}/statements/{{statement-id}}/transactions",
+							"protocol": "https",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"accounts",
+								"{{account-id}}",
+								"statements",
+								"{{statement-id}}",
+								"transactions"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Statement For Account By StatementId ( temporarily unavailable )",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Client-Id",
+								"value": "{{client-id}}",
+								"type": "text"
+							},
+							{
+								"key": "x-fapi-interaction-id",
+								"value": "{{$guid}}",
+								"type": "text"
+							},
+							{
+								"key": "x-fapi-customer-ip-address",
+								"value": "{{$randomIP}}",
+								"type": "text"
+							},
+							{
+								"key": "sandbox-id",
+								"value": "{{sandbox-id}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "https://{{host}}/accounts/{{account-id}}/statements/{{statement-id}}",
+							"protocol": "https",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"accounts",
+								"{{account-id}}",
+								"statements",
+								"{{statement-id}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get File For Account And Statement ( temporarily unavailable )",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Client-Id",
+								"value": "{{client-id}}",
+								"type": "text"
+							},
+							{
+								"key": "x-fapi-interaction-id",
+								"value": "{{$guid}}",
+								"type": "text"
+							},
+							{
+								"key": "x-fapi-customer-ip-address",
+								"value": "{{$randomIP}}",
+								"type": "text"
+							},
+							{
+								"key": "sandbox-id",
+								"value": "{{sandbox-id}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "https://{{host}}/accounts/{{account-id}}/statements/{{statement-id}}/file",
+							"protocol": "https",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"accounts",
+								"{{account-id}}",
+								"statements",
+								"{{statement-id}}",
+								"file"
+							]
+						},
+						"description": "This call should be implemented by a client, because it returns a pdf file"
+					},
+					"response": []
+				},
+				{
+					"name": "Get Statements For Account ( temporarily unavailable )",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "3c4f3477-6254-4866-8633-e9fd4d7edc42",
+								"exec": [
+									"var data = JSON.parse(responseBody);\r",
+									"if (data.Data !== undefined)\r",
+									"   postman.setEnvironmentVariable(\"statement-id\", data.Data.Statement[0].StatementId);"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Client-Id",
+								"value": "{{client-id}}",
+								"type": "text"
+							},
+							{
+								"key": "x-fapi-interaction-id",
+								"value": "{{$guid}}",
+								"type": "text"
+							},
+							{
+								"key": "x-fapi-customer-ip-address",
+								"value": "{{$randomIP}}",
+								"type": "text"
+							},
+							{
+								"key": "sandbox-id",
+								"value": "{{sandbox-id}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "https://{{host}}/accounts/{{account-id}}/statements",
+							"protocol": "https",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"accounts",
+								"{{account-id}}",
+								"statements"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"protocolProfileBehavior": {}
+		},
+		{
+			"name": "Transactions",
+			"item": [
+				{
+					"name": "Get Transactions ( Not Implemented )",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Client-Id",
+								"value": "{{client-id}}",
+								"type": "text"
+							},
+							{
+								"key": "x-fapi-interaction-id",
+								"value": "{{$guid}}",
+								"type": "text"
+							},
+							{
+								"key": "x-fapi-customer-ip-address",
+								"value": "{{$randomIP}}",
+								"type": "text"
+							},
+							{
+								"key": "sandbox-id",
+								"value": "{{sandbox-id}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "https://{{host}}/transactions",
+							"protocol": "https",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"transactions"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Transactions For Account",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Client-Id",
+								"value": "{{client-id}}",
+								"type": "text"
+							},
+							{
+								"key": "x-fapi-interaction-id",
+								"value": "{{$guid}}",
+								"type": "text"
+							},
+							{
+								"key": "x-fapi-customer-ip-address",
+								"value": "{{$randomIP}}",
+								"type": "text"
+							},
+							{
+								"key": "sandbox-id",
+								"value": "{{sandbox-id}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "https://{{host}}/accounts/{{account-id}}/transactions",
+							"protocol": "https",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"accounts",
+								"{{account-id}}",
+								"transactions"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"protocolProfileBehavior": {}
+		}
+	],
+	"auth": {
+		"type": "oauth2",
+		"oauth2": [
+			{
+				"key": "accessToken",
+				"value": "870e61d02fc08fb1233efef9be01dc11bdd20d6a608f08271a4b5fec968748f0",
+				"type": "string"
+			},
+			{
+				"key": "tokenType",
+				"value": "Bearer",
+				"type": "string"
+			},
+			{
+				"key": "addTokenTo",
+				"value": "header",
+				"type": "string"
+			}
+		]
+	},
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"id": "868d9b7b-ce04-4b7e-8453-a66e4410ad62",
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"id": "e4ad62b9-14e1-4d81-850c-65654e43b67d",
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"protocolProfileBehavior": {}
+}
